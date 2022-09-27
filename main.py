@@ -26,7 +26,7 @@ y = np.array(data[predict])
 best=0
 #testing and training using actual data to know correlation btn them
 #test_size is the percentage used for testing the remaining goes to training
-for _ in range(100000000000000000):
+for _ in range(2000):
     x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.09)
 
     #use the linearRegression module
