@@ -63,4 +63,7 @@ predictions=newlinear.predict(v)
 for x in range(len(predictions)):
     print(predictions[x])
 
-
+plt.scatter(data['G1'],data['G3'])
+plt.xlabel('G1')
+plt.ylabel('final grades')
+plt.show()
