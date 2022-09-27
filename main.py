@@ -37,7 +37,7 @@ x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_
 #acc=linear.score(x_test,y_test)l
 
 #printing out some values for verification
-#test model accuracy
+#test model accuracy level
 #print(acc)
 #print('co: \n',linear.coef_)
 #print('intercept: \n',linear.intercept_)
