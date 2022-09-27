@@ -23,10 +23,12 @@ x = np.array(data.drop([predict], 1))
 #dependent variable
 y = np.array(data[predict])
 
+x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y, test_size=0.09)
+'''''''''
 best=0
 #testing and training using actual data to know correlation btn them
 #test_size is the percentage used for testing the remaining goes to training
-for _ in range(2000):
+for _ in range(10000):
     x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.09)
 
     #use the linearRegression module
@@ -46,19 +48,19 @@ for _ in range(2000):
     if acc>best:
         best=acc
         with open('studentmodel.pickle','wb') as f:
-           pickle.dump(linear,f)
+           pickle.dump(linear,f)'''''''''
 
 savedmodel=open('studentmodel.pickle', 'rb')
 newlinear=pickle.load(savedmodel)
-print(f'this is the {best} score')
+
 #using my own data to test module
-v=[[15 ,14 , 6 , 0 , 0]]
+v=[[19 ,20 , 8 , 0 , 0]]
 
 #predict the outcome of your value(s)
-predictions=newlinear.predict(x_test)
+predictions=newlinear.predict(v)
 
 #loop through prediction to see if your data is corresponding well
 for x in range(len(predictions)):
-    print(predictions[x],x_test[x],y_test[x])
+    print(predictions[x])
 
 
