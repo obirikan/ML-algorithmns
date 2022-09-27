@@ -26,7 +26,7 @@ y = np.array(data[predict])
 best=0
 #testing and training using actual data to know correlation btn them
 #test_size is the percentage used for testing the remaining goes to training
-for _ in range(30):
+for _ in range(100000000000000000):
     x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.09)
 
     #use the linearRegression module
@@ -37,22 +37,20 @@ for _ in range(30):
 
     #test the accuracy of the error
     acc=linear.score(x_test,y_test)
+    print(acc)
 
     #printing out some values for verification
     #test model accuracy level
-    print(acc)
-    print('co: \n',linear.coef_)
-    print('intercept: \n',linear.intercept_)
+
+
     if acc>best:
-        #saving model
+        best=acc
         with open('studentmodel.pickle','wb') as f:
            pickle.dump(linear,f)
 
 savedmodel=open('studentmodel.pickle', 'rb')
 newlinear=pickle.load(savedmodel)
-acc=newlinear.score(x_test,y_test)
-print(acc)
-
+print(f'this is the {best} score')
 #using my own data to test module
 v=[[15 ,14 , 6 , 0 , 0]]
 
