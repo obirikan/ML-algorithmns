@@ -40,7 +40,7 @@ x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_
 #test model accuracy
 #print(acc)
 #print('co: \n',linear.coef_)
-#print('intercept: \n',linear.intercept_)-
+#print('intercept: \n',linear.intercept_)
 
 #saving model
 #with open('studentmodel.pickle','wb') as f:
