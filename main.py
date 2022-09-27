@@ -34,7 +34,7 @@ x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_
 #linear.fit(x_train,y_train)
 
 #test the accuracy of the error
-#acc=linear.score(x_test,y_test)
+#acc=linear.score(x_test,y_test)l
 
 #printing out some values for verification
 #test model accuracy
