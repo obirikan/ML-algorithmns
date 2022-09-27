@@ -23,28 +23,31 @@ x = np.array(data.drop([predict], 1))
 #dependent variable
 y = np.array(data[predict])
 
+best=0
 #testing and training using actual data to know correlation btn them
-#test_size is the percentage used for testing the remaining goes to training 
-x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.09)
+#test_size is the percentage used for testing the remaining goes to training
+for _ in range(30):
+    x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.09)
 
-#use the linearRegression module
-#linear=linear_model.LinearRegression()
+    #use the linearRegression module
+    linear=linear_model.LinearRegression()
 
-#minimizing error(gradient decent)
-#linear.fit(x_train,y_train)
+    #minimizing error(gradient decent)
+    linear.fit(x_train,y_train)
 
-#test the accuracy of the error
-#acc=linear.score(x_test,y_test)l
+    #test the accuracy of the error
+    acc=linear.score(x_test,y_test)
 
-#printing out some values for verification
-#test model accuracy level
-#print(acc)
-#print('co: \n',linear.coef_)
-#print('intercept: \n',linear.intercept_)
+    #printing out some values for verification
+    #test model accuracy level
+    print(acc)
+    print('co: \n',linear.coef_)
+    print('intercept: \n',linear.intercept_)
+    if acc>best:
+        #saving model
+        with open('studentmodel.pickle','wb') as f:
+           pickle.dump(linear,f)
 
-#saving model
-#with open('studentmodel.pickle','wb') as f:
-   # pickle.dump(linear,f)
 savedmodel=open('studentmodel.pickle', 'rb')
 newlinear=pickle.load(savedmodel)
 acc=newlinear.score(x_test,y_test)
