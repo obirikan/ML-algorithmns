@@ -1,11 +1,12 @@
 import tensorflow
 import keras
 import pandas as pd
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 import numpy as np
 import sklearn
 from sklearn import linear_model
 from sklearn.utils import shuffle
+import pickle
 
 # import Data
 data = pd.read_csv("student-mat.csv", sep=";")
@@ -24,27 +25,36 @@ y = np.array(data[predict])
 
 #testing and training using actual data to know correlation btn them
 #test_size is the percentage used for testing the remaining goes to training 
-x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.5)
+x_train,x_test,y_train,y_test=sklearn.model_selection.train_test_split(x,y,test_size=0.09)
 
 #use the linearRegression module
-linear=linear_model.LinearRegression()
+#linear=linear_model.LinearRegression()
 
 #minimizing error(gradient decent)
-linear.fit(x_train,y_train)
+#linear.fit(x_train,y_train)
 
 #test the accuracy of the error
-acc=linear.score(x_test,y_test)
+#acc=linear.score(x_test,y_test)
 
 #printing out some values for verification
+#test model accuracy
+#print(acc)
+#print('co: \n',linear.coef_)
+#print('intercept: \n',linear.intercept_)
+
+#saving model
+#with open('studentmodel.pickle','wb') as f:
+   # pickle.dump(linear,f)
+savedmodel=open('studentmodel.pickle', 'rb')
+newlinear=pickle.load(savedmodel)
+acc=newlinear.score(x_test,y_test)
 print(acc)
-print('co: \n',linear.coef_)
-print('intercept: \n',linear.intercept_)
 
 #using my own data to test module
-v=[12 ,14 , 1 , 0 , 0]
+v=[[15 ,14 , 6 , 0 , 0]]
 
 #predict the outcome of your value(s)
-predictions=linear.predict(x_test)
+predictions=newlinear.predict(x_test)
 
 #loop through prediction to see if your data is corresponding well
 for x in range(len(predictions)):
