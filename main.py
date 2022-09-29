@@ -8,7 +8,7 @@ from sklearn import linear_model
 from sklearn.utils import shuffle
 import pickle
 
-# import Data
+# import Data from a csv file
 data = pd.read_csv("student-mat.csv", sep=";")
 
 #take out the wanted labels / use wanted independent variable
