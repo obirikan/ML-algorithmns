@@ -22,7 +22,7 @@ x = np.array(data.drop([predict], 1))
 
 #dependent variable
 y = np.array(data[predict])
-
+#training and testing data
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y, test_size=0.09)
 '''''''''
 best=0
