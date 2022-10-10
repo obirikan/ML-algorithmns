@@ -1,5 +1,5 @@
-# import tensorflow
-# import keras
+import tensorflow
+import keras
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,15 +14,15 @@ data = pd.read_csv("linear regession/student-mat.csv", sep=";")
 #take out the wanted labels / use wanted independent variable
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
 
-#dependent variable
+#dependent variable (Y)
 predict = "G3"
 
-#independent variable(s)
+#independent variable(s)...(X)
 x = np.array(data.drop([predict], 1))
 
 #dependent variable
 y = np.array(data[predict])
-
+#training and testing data
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y, test_size=0.09)
 '''''''''
 best=0
@@ -63,6 +63,7 @@ predictions=newlinear.predict(v)
 #loop through prediction to see if your data is corresponding well
 for x in range(len(predictions)):
     print(predictions[x])
+
 
 #plot your data
 # plt.scatter(data['G1'],data['G3'])
