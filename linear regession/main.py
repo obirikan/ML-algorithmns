@@ -1,5 +1,5 @@
-import tensorflow
-import keras
+# import tensorflow
+# import keras
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,8 +8,8 @@ from sklearn import linear_model
 from sklearn.utils import shuffle
 import pickle
 
-# import Data
-data = pd.read_csv("student-mat.csv", sep=";")
+#import Data
+data = pd.read_csv("linear regession/student-mat.csv", sep=";")
 
 #take out the wanted labels / use wanted independent variable
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
@@ -48,13 +48,14 @@ for _ in range(10000):
     if acc>best:
         best=acc
         with open('studentmodel.pickle','wb') as f:
-           pickle.dump(linear,f)'''''''''
+           pickle.dump(linear,f)
+'''''''''
 
-savedmodel=open('studentmodel.pickle', 'rb')
+savedmodel=open('linear regession/studentmodel.pickle', 'rb')
 newlinear=pickle.load(savedmodel)
 
 #using my own data to test module
-v=[[19 ,20 , 8 , 0 , 0]]
+v=[[1 ,1 , 0 ,3, 5]]
 
 #predict the outcome of your value(s)
 predictions=newlinear.predict(v)
@@ -63,7 +64,8 @@ predictions=newlinear.predict(v)
 for x in range(len(predictions)):
     print(predictions[x])
 
-plt.scatter(data['G1'],data['G3'])
-plt.xlabel('G1')
-plt.ylabel('final grades')
-plt.show()
+#plot your data
+# plt.scatter(data['G1'],data['G3'])
+# plt.xlabel('G1')
+# plt.ylabel('final grades')
+# plt.show()
