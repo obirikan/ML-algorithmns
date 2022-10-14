@@ -21,6 +21,7 @@ lug_boot=le.fit_transform(list(df['lug_boot']))
 safety=le.fit_transform(list(df['safety']))
 cls=le.fit_transform(list(df['class']))
 
+#this is what we will be predicting 
 predict='class'
 #grouping all
 x=list(zip(buying,maint,door,persons,lug_boot,safety))
