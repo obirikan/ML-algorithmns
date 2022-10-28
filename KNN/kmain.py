@@ -12,7 +12,7 @@ print(df.head())
 #this is going to transfrom our non numerical value to numerical value
 le=preprocessing.LabelEncoder()
 
-#
+#transforming texts to numerical 
 buying=le.fit_transform(list(df['buying']))
 maint=le.fit_transform(list(df['maint']))
 door=le.fit_transform(list(df['door']))
@@ -21,6 +21,7 @@ lug_boot=le.fit_transform(list(df['lug_boot']))
 safety=le.fit_transform(list(df['safety']))
 cls=le.fit_transform(list(df['class']))
 
+#prediction
 predict='class'
 #grouping all
 x=list(zip(buying,maint,door,persons,lug_boot,safety))
