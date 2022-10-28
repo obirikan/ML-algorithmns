@@ -1,5 +1,5 @@
-import tensorflow
-import keras
+# import tensorflow
+# import keras
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,8 +8,10 @@ from sklearn import linear_model
 from sklearn.utils import shuffle
 import pickle
 
-#import Data from csv file 
-data = pd.read_csv("linear regession/student-mat.csv", sep=";")
+
+#import Data
+data = pd.read_csv("student-mat.csv", sep=";")
+
 
 #take out the wanted labels / use wanted independent variable
 data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
@@ -18,10 +20,12 @@ data = data[["G1", "G2", "G3", "studytime", "failures", "absences"]]
 predict = "G3"
 
 #independent variable(s)...(X)
-x = np.array(data.drop([predict], 1))
+x = np.array(data.drop([predict],1))
 
 #dependent variable
 y = np.array(data[predict])
+print(y)
+print(x)
 #training and testing data
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y, test_size=0.09)
 '''''''''
@@ -51,7 +55,7 @@ for _ in range(10000):
            pickle.dump(linear,f)
 '''''''''
 
-savedmodel=open('linear regession/studentmodel.pickle', 'rb')
+savedmodel=open('studentmodel.pickle', 'rb')
 newlinear=pickle.load(savedmodel)
 
 #using my own data to test module
