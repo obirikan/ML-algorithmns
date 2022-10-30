@@ -12,7 +12,7 @@ print(df.head())
 #this is going to transfrom our non numerical value to numerical value
 le=preprocessing.LabelEncoder()
 
-#transforming texts to numerical 
+#transforming texts to numerical.....
 buying=le.fit_transform(list(df['buying']))
 maint=le.fit_transform(list(df['maint']))
 door=le.fit_transform(list(df['door']))
