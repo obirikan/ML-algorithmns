@@ -9,7 +9,7 @@ from sklearn.neighbors import KNeighborsClassifier
 df=pd.read_csv('car.data')
 print(df.head())
 
-#this is going to transfrom our non numerical value to numerical value
+#this is going to transfrom our non numerical value to numerical value text to number
 le=preprocessing.LabelEncoder()
 
 #transforming texts to numerical.....
