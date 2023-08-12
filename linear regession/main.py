@@ -9,7 +9,7 @@ from sklearn.utils import shuffle
 import pickle
 
 
-#import Data
+#import Data using csv
 data = pd.read_csv("student-mat.csv", sep=";")
 
 
