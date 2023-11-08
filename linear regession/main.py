@@ -64,7 +64,7 @@ v=[[1 ,1 , 0 ,3, 5]]
 #predict the outcome of your value(s)
 predictions=newlinear.predict(v)
 
-#loop through prediction to see if your data is corresponding well
+#loop through prediction to see correct prediction
 for x in range(len(predictions)):
     print(predictions[x])
 
